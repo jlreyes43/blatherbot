@@ -1,9 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const apikey = require('./keys.js');
+const config = require('./config.json');
 
 client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.login(apikey.apikey).catch((error) => console.log(error));
+client.on('message', message => {
+    if (message.content === '!ping') {
+        message.channel.send('Pong.');
+    }
+});
+
+client.login(config.token).catch((error) => console.log(error));
