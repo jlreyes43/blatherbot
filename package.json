@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jlreyes43/blatherbot/issues"
   },
-  "homepage": "https://github.com/jlreyes43/blatherbot#readme"
+  "homepage": "https://github.com/jlreyes43/blatherbot#readme",
+  "engines": {
+    "node": "^14.0.0"
+  }
 }
