@@ -46,7 +46,11 @@ client.on('message', message => {
     if (command === 'blathertest') {
         message.channel.send("Hi, I'm Blather!");
     }else if (command === 'shagne'){
-        message.channel.send('Is smol');
+        message.channel.send('Is smol. Subscribe to twitch.tv/shagne!');
+    }else if (command === 'graubenn'){
+        message.channel.send('Is a money flex lord. Subscribe to twitch.tv/graubenn!');
+    }else if (command === 'kittehkillah' || command === 'jl'){
+        message.channel.send('Is the cooliest');
     }else if (command === 'blatherhelp'){
         message.channel.send('Hi there! There are 3 available commands: **!fish** `fish_name`, **!bugs** `bug_name`, **!fossils** `fossil_name`. *Hint: If there is a space in the name of the thing, replace the space with _*');
     // }else if (command === 'villagers'){
