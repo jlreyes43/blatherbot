@@ -40,8 +40,8 @@ client.on('message', message => {
             })
     }
 
-    if (command === 'ping') {
-        message.channel.send('Pong.');
+    if (command === 'blathertest') {
+        message.channel.send("Hi, I'm Blather!");
     }else if (command === 'shagne'){
         message.channel.send('Is smol');
     }else if (command === 'help'){
@@ -143,10 +143,6 @@ client.on('message', message => {
                 message.channel.send(fossilEmbed);
             })
     }
-
-
-
-
 });
 
 client.login(token).catch((error) => console.log(error));
