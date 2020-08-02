@@ -32,22 +32,20 @@ client.on('message', message => {
                     rarity: response.data.availability?.rarity || 'N/A',
                     speed: response.data?.speed || 'N/A', 
                     shadow: response.data?.shadow || 'N/A',
-                    northAvailability: response.data?.availability['month-northern'] || 'N/A (or always available)', 
-                    southAvailability: response.data?.availability['month-southern'] || 'N/A (or always available)',
+                    northAvailability: response.data.availability?.['month-northern'] || 'N/A (or always available)', 
+                    southAvailability: response.data.availability?.['month-southern'] || 'N/A (or always available)',
                     phrase: response.data?.['museum-phrase'] || 'N/A'
                 } 
                 return data
             })
     }
 
-    
-    
-
     if (command === 'ping') {
         message.channel.send('Pong.');
     }else if (command === 'shagne'){
         message.channel.send('Is smol');
-        
+    }else if (command === 'help'){
+        message.channel.send('Hi there! There are 3 available commands: **!fish** `fish_name`, **!bugs** `bug_name`, **!fossils** `fossil_name`. *Hint: If there is a space in the name of the thing, replace the space with _*');
     // }else if (command === 'villagers'){
     //     villagers = () => {
     //         return axios.get('https://acnhapi.com/v1/villagers/ant00')
@@ -90,17 +88,59 @@ client.on('message', message => {
     }else if (command === 'bugs'){
         request()
             .then(data => {
-                message.channel.send(`Name: ${data.name} \n\nPrice: ${data.price} \n\nFlick Price: ${data.flickprice} \n\nTime: ${data.time} \n\nLocation: ${data.location} \n\nShadow: ${data.shadow} \n\nRarity: ${data.rarity} \n\nNorthern Months Availability: ${data.northAvailability} \n\nSouthern Months Availability: ${data.southAvailability} \n\nMuseum Phrase: ${data.phrase} \nhttps://acnhapi.com/v1/images/${command}/${args}`);
+                const bugEmbed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setTitle(_.capitalize(data.name))
+                    .setDescription(data.phrase)
+                    .setThumbnail(`https://acnhapi.com/v1/icons/${command}/${args}`)
+                    .addFields(
+                        { name: 'Name', value: _.capitalize(data.name) },
+                        { name: 'Price', value: data.price, inline: true  },
+                        { name: 'Flick Price', value: data.flickprice, inline: true  },
+                        { name: 'Time', value: data.time },
+                        { name: 'Location', value: data.location },
+                        { name: 'Northern Months Availability', value: data.northAvailability},
+                        { name: 'Southern Months Availability', value: data.southAvailability},
+                        { name: 'Rarity', value: data.rarity, inline: true  },
+                    )
+                    .setImage(`https://acnhapi.com/v1/images/${command}/${args}`)
+                    .setFooter('Contact JL if there is a problem 🤓');
+                message.channel.send(bugEmbed);
             })
     }else if (command === 'sea'){
         request()
             .then(data => {
-                message.channel.send(`Name: ${data.name} \n\nPrice: ${data.price} \n\nTime: ${data.time} \n\nNorthern Months Availability: ${data.northAvailability} \n\nSouthern Months Availability: ${data.southAvailability} \n\nMuseum Phrase: ${data.phrase} \nhttps://acnhapi.com/v1/images/${command}/${args}`);
+                const seaEmbed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setTitle(_.capitalize(data.name))
+                    .setDescription(data.phrase)
+                    .setThumbnail(`https://acnhapi.com/v1/icons/${command}/${args}`)
+                    .addFields(
+                        { name: 'Name', value: _.capitalize(data.name) },
+                        { name: 'Price', value: data.price, inline: true  },
+                        { name: 'Time', value: data.time },
+                        { name: 'Northern Months Availability', value: data.northAvailability},
+                        { name: 'Southern Months Availability', value: data.southAvailability},
+                    )
+                    .setImage(`https://acnhapi.com/v1/images/${command}/${args}`)
+                    .setFooter('Contact JL if there is a problem 🤓');
+                message.channel.send(seaEmbed);
             })
     }else if (command === 'fossils'){
         request()
             .then(data => {
-                message.channel.send(`Name: ${data.name} \n\nPrice: ${data.price} \n\nMuseum Phrase: ${data.phrase} \nhttps://acnhapi.com/v1/images/${command}/${args}`);
+                const fossilEmbed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setTitle(_.capitalize(data.name))
+                    .setDescription(data.phrase)
+                    .setThumbnail(`https://acnhapi.com/v1/icons/${command}/${args}`)
+                    .addFields(
+                        { name: 'Name', value: _.capitalize(data.name) },
+                        { name: 'Price', value: data.price, inline: true  },
+                    )
+                    .setImage(`https://acnhapi.com/v1/images/${command}/${args}`)
+                    .setFooter('Contact JL if there is a problem 🤓');
+                message.channel.send(fossilEmbed);
             })
     }
 
