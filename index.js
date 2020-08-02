@@ -77,6 +77,7 @@ client.on('message', message => {
                         { name: 'Price', value: data.price, inline: true  },
                         { name: 'CJ Price', value: data.cjprice, inline: true  },
                         { name: 'Time', value: data.time },
+                        { name: 'Location', value: data.location },
                         { name: 'Northern Months Availability', value: data.northAvailability},
                         { name: 'Southern Months Availability', value: data.southAvailability},
                         { name: 'Shadow', value: data.shadow, inline: true  },
