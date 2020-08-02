@@ -43,7 +43,6 @@ client.on('message', message => {
             .then(data => {
                 message.channel.send(`Villager Name: ${data.name}\nPersonality: ${data.personality}\nBirthday: ${data.birthday}`);
             })
-        // message.channel.send(`Villager Name: ${name}\nPersonality: ${personality}\nBirthday: $`);
     }else if (command === 'fish'){
         fish = () => {
             return axios.get('https://acnhapi.com/v1/fish/1')
@@ -62,7 +61,6 @@ client.on('message', message => {
             .then(data => {
                 message.channel.send(`Name: ${data.name}\nPrice: ${data.price}\nPhrase: ${data.phrase}`);
             })
-        // message.channel.send(`Villager Name: ${name}\nPersonality: ${personality}\nBirthday: $`);
     }else if (command === 'bugs'){
         bugs = () => {
             return axios.get('https://acnhapi.com/v1/bugs/1')
@@ -81,7 +79,6 @@ client.on('message', message => {
             .then(data => {
                 message.channel.send(`Name: ${data.name}\nPrice: ${data.price}\nPhrase: ${data.phrase}`);
             })
-        // message.channel.send(`Villager Name: ${name}\nPersonality: ${personality}\nBirthday: $`);
     }
 });
 
