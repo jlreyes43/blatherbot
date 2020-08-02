@@ -1,8 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token } = require('./config.json');
 const axios = require('axios').default;
 const _ = require('lodash');
+require('dotenv').config();
+
+const token = process.env.TOKEN;
+const prefix = process.env.PREFIX;
 
 const options = {
     method: 'GET',
