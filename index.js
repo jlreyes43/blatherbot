@@ -52,7 +52,7 @@ client.on('message', message => {
     }else if (command === 'kittehkillah' || command === 'jl'){
         message.channel.send('Is the cooliest');
     }else if (command === 'blatherhelp'){
-        message.channel.send('Hi there! There are 3 available commands: **!fish** `fish_name`, **!bugs** `bug_name`, **!fossils** `fossil_name`. *Hint: If there is a space in the name of the thing, replace the space with _*');
+        message.channel.send('Hi there! There are 4 available commands: **!fish** `fish_name`, **!bugs** `bug_name`, **!sea** `sea_creature_name note: like seaweed and stuff`,**!fossils** `fossil_name`. *Hint: If there is a space in the name of the thing, replace the space with _*');
     // }else if (command === 'villagers'){
     //     villagers = () => {
     //         return axios.get('https://acnhapi.com/v1/villagers/ant00')
