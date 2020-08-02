@@ -26,7 +26,7 @@ client.on('message', message => {
         return axios.get(`https://acnhapi.com/v1/${command}/${args}`)
             .then((response)=>{
                 let data = {
-                    name: response.data?.name['name-USen'] || 'N/A',
+                    name: response.data.name?.['name-USen'] || 'N/A',
                     price: response.data?.price || 'N/A',
                     cjprice: response.data?.['price-cj'] || 'N/A',
                     flickprice: response.data?.['price-flick'] || 'N/A',
